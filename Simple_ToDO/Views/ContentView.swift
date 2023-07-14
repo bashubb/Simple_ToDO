@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showTaskView = false
+    
     var body: some View {
         ZStack (alignment: .bottomTrailing) {
             
+            TasksView()
+            
+            AddButton()
+                .padding()
+                .onTapGesture {
+                    showTaskView.toggle()
+                }
             
             
         }
+        .sheet(isPresented: $showTaskView) {
+            AddTaskView()
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .background(Color(red: 0.838, green: 0.747, blue: 0.669))
     }
 }
 
