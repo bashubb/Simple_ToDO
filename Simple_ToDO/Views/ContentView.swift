@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject var realmManager = RealmManager()
     @State private var showTaskView = false
     
     var body: some View {
