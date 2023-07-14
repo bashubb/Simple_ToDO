@@ -12,6 +12,7 @@ struct Simple_ToDOApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(RealmManager())
         }
     }
 }

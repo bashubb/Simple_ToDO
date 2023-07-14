@@ -83,7 +83,7 @@ class RealmManager: ObservableObject {
     // MARK: UPDATE
     
     ///Updates task
-    func updateTast(id: ObjectId, completed: Bool) {
+    func updateTask(id: ObjectId, completed: Bool) {
         
         // Unwrap localRealm
         if let localRealm = localRealm {
