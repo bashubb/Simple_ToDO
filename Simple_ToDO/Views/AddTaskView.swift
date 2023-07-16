@@ -45,7 +45,7 @@ struct AddTaskView: View {
         }
         .padding(.top, 40)
         .padding(.horizontal)
-        .background(Color(red: 0.838, green: 0.747, blue: 0.669))
+        .background(Color(hue: 0.481, saturation: 0.03, brightness: 0.884))
     }
 }
 

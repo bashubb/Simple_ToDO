@@ -14,11 +14,39 @@ struct TaskRow: View {
     
     var body: some View {
         
-        HStack(spacing: 20) {
-            Image(systemName: completed ? "checkmark.circle" : "circle")
+        Button {
             
-            Text(task)
+        } label: {
+            
+            HStack (spacing: 20) {
+                ZStack {
+                    Circle()
+                        .stroke(lineWidth: 1.5)
+                        .frame(height: 25)
+                        .transition(.scale)
+                    
+                    if completed {
+                        ZStack {
+                            Circle()
+                                .fill(.green)
+                                .frame(height: 24)
+                                
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.white)
+                        }
+                        .transition(.scale)
+                    }
+                }
+                
+                Text(task)
+                    .strikethrough(completed)
+                    .foregroundColor(.primary)
+            }
+            
+            .animation(.easeIn, value: completed)
         }
+
+       
     }
 }
 
@@ -27,3 +55,6 @@ struct TaskRow_Previews: PreviewProvider {
         TaskRow(task: "Wash dishes", completed: true)
     }
 }
+
+
+

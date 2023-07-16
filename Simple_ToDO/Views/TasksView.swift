@@ -23,7 +23,11 @@ struct TasksView: View {
                                 TaskRow(task: task.title, completed: task.completed)
                                     .onTapGesture {
                                         realmManager.updateTask(id: task.id, completed: !task.completed)
-                                        realmManager.getTasks()
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            realmManager.getTasks()
+                                        }
+                                            
+                                    
                                     }
                                     .swipeActions(allowsFullSwipe: true) {
                                         Button(role: .destructive) {
@@ -36,7 +40,10 @@ struct TasksView: View {
                             }
                         }
                         .listRowSeparator(.hidden)
+                        
                     }
+                    
+                    .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                 }
                 
@@ -44,7 +51,7 @@ struct TasksView: View {
             }
             .navigationTitle("My Tasks")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(red: 0.838, green: 0.747, blue: 0.669))
+            .background(Color(hue: 0.481, saturation: 0.03, brightness: 0.884))
         }
     }
 }
