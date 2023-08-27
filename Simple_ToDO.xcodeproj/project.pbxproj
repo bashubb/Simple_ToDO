@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B56732BB2A9BF81500CEBAC9 /* Monoton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B56732BA2A9BF81500CEBAC9 /* Monoton-Regular.ttf */; };
+		B56732BD2A9BF81E00CEBAC9 /* ShareTechMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B56732BC2A9BF81E00CEBAC9 /* ShareTechMono-Regular.ttf */; };
 		B5743ED12A610CF400BCFCEF /* Simple_ToDOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5743ED02A610CF400BCFCEF /* Simple_ToDOApp.swift */; };
 		B5743ED32A610CF400BCFCEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5743ED22A610CF400BCFCEF /* ContentView.swift */; };
 		B5743ED52A610CF600BCFCEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5743ED42A610CF600BCFCEF /* Assets.xcassets */; };
@@ -22,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B56732BA2A9BF81500CEBAC9 /* Monoton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monoton-Regular.ttf"; sourceTree = "<group>"; };
+		B56732BC2A9BF81E00CEBAC9 /* ShareTechMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShareTechMono-Regular.ttf"; sourceTree = "<group>"; };
+		B56732BE2A9BF83700CEBAC9 /* Simple-ToDO-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Simple-ToDO-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B5743ECD2A610CF400BCFCEF /* Simple_ToDO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple_ToDO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5743ED02A610CF400BCFCEF /* Simple_ToDOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_ToDOApp.swift; sourceTree = "<group>"; };
 		B5743ED22A610CF400BCFCEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B56732B92A9BF80300CEBAC9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B56732BA2A9BF81500CEBAC9 /* Monoton-Regular.ttf */,
+				B56732BC2A9BF81E00CEBAC9 /* ShareTechMono-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		B5743EC42A610CF400BCFCEF = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,8 @@
 		B5743ECF2A610CF400BCFCEF /* Simple_ToDO */ = {
 			isa = PBXGroup;
 			children = (
+				B56732BE2A9BF83700CEBAC9 /* Simple-ToDO-Info.plist */,
+				B56732B92A9BF80300CEBAC9 /* Fonts */,
 				B5743ED02A610CF400BCFCEF /* Simple_ToDOApp.swift */,
 				B5743EEE2A611AA400BCFCEF /* RealmManager.swift */,
 				B5743EF02A61436F00BCFCEF /* Models */,
@@ -178,6 +194,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56732BD2A9BF81E00CEBAC9 /* ShareTechMono-Regular.ttf in Resources */,
+				B56732BB2A9BF81500CEBAC9 /* Monoton-Regular.ttf in Resources */,
 				B5743ED82A610CF600BCFCEF /* Preview Assets.xcassets in Resources */,
 				B5743ED52A610CF600BCFCEF /* Assets.xcassets in Resources */,
 			);
@@ -328,6 +346,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Simple_ToDO/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Simple-ToDO-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -356,6 +375,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Simple_ToDO/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Simple-ToDO-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

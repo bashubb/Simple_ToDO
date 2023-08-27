@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class RealmManager: ObservableObject {
+    
     private(set) var localRealm: Realm?
     @Published private(set) var tasks: [Task] = []
     
@@ -70,7 +71,7 @@ class RealmManager: ObservableObject {
         if let localRealm {
             
             // Fetch tasks and sorted by 'completed' property
-           let allTask =  localRealm.objects(Task.self).sorted(byKeyPath: "completed")
+v           let allTask =  localRealm.objects(Task.self)
             self.tasks = []
             
             // iterate in fetched tasks and add every single one to the published property
@@ -124,5 +125,11 @@ class RealmManager: ObservableObject {
                 print("Error deleting the task \(id) from Realm: \(error) ")
             }
         }
+    }
+    
+    
+    func sortTasks() {
+        
+        tasks.sort(by: { !$0.completed && $1.completed })
     }
 }

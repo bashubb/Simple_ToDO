@@ -17,12 +17,12 @@ struct AddTaskView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 20) {
             
-            Text("Create a new taks")
-                .font(.title3)
-                .bold()
+            Text("Create  a  new task")
+                .font(.custom("Monoton-Regular", size: 30))
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             TextField("Enter your task here", text: $title)
+                .font(.custom("ShareTechMono-Regular", size: 20))
                 .textFieldStyle(.roundedBorder)
             
             Button {
@@ -43,6 +43,7 @@ struct AddTaskView: View {
             
             
         }
+        .font(.custom("ShareTechMono-Regular", size: 20))
         .padding(.top, 40)
         .padding(.horizontal)
         .background(Color(hue: 0.481, saturation: 0.03, brightness: 0.884))
