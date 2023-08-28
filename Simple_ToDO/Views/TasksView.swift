@@ -23,17 +23,18 @@ struct TasksView: View {
                         .font(Font.custom("Monoton-Regular", size: 40))
                         .padding(8)
                         .padding(.horizontal)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color.black.opacity(0.1))
+                        
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.black.opacity(0.1))
                     
                     List {
                         ForEach(tasks, id: \.id) {task in
                                 TaskRow(task: task)
                                     .listRowBackground(Color.clear)
-                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                    .swipeActions {
                                         Button {
-                                            $tasks.remove(task)
+                                                $tasks.remove(task)
                                         } label: {
                                             Image(systemName: "xmark")
                                         }
@@ -72,9 +73,4 @@ struct TasksView: View {
     }
 }
 
-//struct TasksView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TasksView()
-//            
-//    }
-//}
+

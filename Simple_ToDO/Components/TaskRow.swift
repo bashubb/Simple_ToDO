@@ -17,7 +17,7 @@ struct TaskRow: View {
         
         Toggle(task.title, isOn: $task.completed)
             .toggleStyle(CheckToggleStyle())
-            .font(.custom("ShareTechMono-Regular", size: 25))
+            .font(.custom("ShareTechMono-Regular", size: 20))
             .foregroundColor(.primary)
             .padding(.vertical, 10)
     }

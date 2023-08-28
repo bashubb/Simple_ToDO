@@ -17,7 +17,7 @@ struct EditTaskView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 20) {
             
-            Text("Update  the task")
+            Text("Update  the   task")
                 .font(.custom("Monoton-Regular", size: 30))
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -37,9 +37,7 @@ struct EditTaskView: View {
             }
             
             Spacer()
-            
-            
-            
+        
         }
         .font(.custom("ShareTechMono-Regular", size: 20))
         .padding(.top, 40)
@@ -48,9 +46,3 @@ struct EditTaskView: View {
     }
 }
 
-//struct EditTaskView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditTaskView()
-//
-//    }
-//}
