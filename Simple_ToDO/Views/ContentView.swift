@@ -9,23 +9,38 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-    @State private var showTaskView = false
+    @State private var showAddView = false
     @ObservedResults(Task.self) var tasks
     
     var body: some View {
-        ZStack (alignment: .bottomTrailing) {
+        VStack  {
             if tasks.first != nil {
-                TasksView()
-            }
-            AddButton()
-                .padding()
-                .onTapGesture {
-                    showTaskView.toggle()
+                ZStack (alignment: .bottomTrailing) {
+                    TasksView()
+                    AddButton(showAddView: $showAddView)
+                        .padding()
                 }
-            
+            }
+            else {
+                VStack{
+                    Spacer()
+                    Text("You don't have any tasks yet")
+                    HStack{
+                        Text("Press")
+                        Button {
+                            showAddView = true
+                        } label: {
+                            Text("here")
+                        }
+                        Text("to add some")
+                    }
+                    Spacer()
+                }
+                .font(.custom("ShareTechMono-Regular", size: 20))
+            }
             
         }
-        .sheet(isPresented: $showTaskView) {
+        .sheet(isPresented: $showAddView) {
             AddTaskView()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)

@@ -79,9 +79,9 @@
 		B5743ECF2A610CF400BCFCEF /* Simple_ToDO */ = {
 			isa = PBXGroup;
 			children = (
+				B5743ED02A610CF400BCFCEF /* Simple_ToDOApp.swift */,
 				B56732BE2A9BF83700CEBAC9 /* Simple-ToDO-Info.plist */,
 				B56732B92A9BF80300CEBAC9 /* Fonts */,
-				B5743ED02A610CF400BCFCEF /* Simple_ToDOApp.swift */,
 				B5743EF02A61436F00BCFCEF /* Models */,
 				B5743EDE2A610EA500BCFCEF /* Views */,
 				B5743EE12A610F9D00BCFCEF /* Components */,
