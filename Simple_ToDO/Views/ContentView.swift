@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
-    @EnvironmentObject var realmManager : RealmManager
     @State private var showTaskView = false
+    @ObservedResults(Task.self) var tasks
     
     var body: some View {
         ZStack (alignment: .bottomTrailing) {
-            
-            TasksView()
-            
+            if tasks.first != nil {
+                TasksView()
+            }
             AddButton()
                 .padding()
                 .onTapGesture {
@@ -35,6 +36,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(RealmManager())
+            
     }
 }

@@ -6,55 +6,64 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct TaskRow: View {
     
-    var task:String
-    var completed: Bool
-    
+    @ObservedRealmObject var task: Task
     
     var body: some View {
         
+        
+        Toggle(task.title, isOn: $task.completed)
+            .toggleStyle(CheckToggleStyle())
+            .font(.custom("ShareTechMono-Regular", size: 25))
+            .foregroundColor(.primary)
+            .padding(.vertical, 10)
+    }
+}
+
+
+struct CheckToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
         Button {
-            
-        } label: {
-            
-            HStack (spacing: 20) {
+            configuration.isOn.toggle()
+        } label : {
+            Label {
+                configuration.label
+                    .strikethrough(configuration.isOn, pattern: .solid, color: Color.red)
+            } icon : {
                 ZStack {
                     Circle()
                         .stroke(lineWidth: 1.5)
                         .frame(height: 25)
+                    //First set of animation changes
+                        .scaleEffect(configuration.isOn ? 2 : 1)
+                        .animation(.easeOut(duration: 1), value: configuration.isOn)
+                    
+                    //Secondnset of animation changes
+                        .scaleEffect(configuration.isOn ? 0.5 : 1)
+                        .animation(.easeIn.delay(1).speed(2), value: configuration.isOn)
                         .background(Circle()
-                            .fill(completed ? Color.green : Color.white)
-                            .scaleEffect(completed ? 1 : 0))
+                            .fill(configuration.isOn ? Color.green : Color.white)
+                            .scaleEffect(configuration.isOn ? 1 : 0))
                     
                     Image(systemName: "checkmark")
                         .foregroundColor(.white)
-                        .opacity(completed ? 1 : 0)
-                        .scaleEffect(completed ? 1 : 0.3)
-                        .animation(.easeInOut(duration: 0.4).delay(0.3) , value: completed)
-                    
+                        .opacity(configuration.isOn ? 1 : 0)
+                        .scaleEffect(configuration.isOn ? 0.8 : 0.3)
+                        .animation(.spring().delay(0.3) , value: configuration.isOn)
                 }
+                .animation(.default, value: configuration.isOn)
                 
-                Text(task)
-                    .font(.custom("ShareTechMono-Regular", size: 25))
-                    .strikethrough(completed)
-                    .foregroundColor(.primary)
             }
-            
-            .animation(.default, value: completed)
         }
-        .padding(.vertical, 10)
-        
+        .buttonStyle(.plain)
     }
+    
 }
 
-struct TaskRow_Previews: PreviewProvider {
-    static var previews: some View {
-        TasksView()
-            .environmentObject(RealmManager())
-    }
-}
+
 
 
 

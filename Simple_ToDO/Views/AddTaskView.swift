@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddTaskView: View {
     
-    @EnvironmentObject var realmManager: RealmManager
-    
-    @State private var title: String = ""
+    @ObservedResults(Task.self) var tasks
+    @State private var title = ""
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -27,7 +27,8 @@ struct AddTaskView: View {
             
             Button {
                 if title != "" {
-                    realmManager.addTask(taskTitle: title)
+                    let task = Task(value: ["title" : title])
+                    $tasks.append(task)
                 }
                 dismiss()
             } label: {
@@ -50,9 +51,10 @@ struct AddTaskView: View {
     }
 }
 
-struct AddTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTaskView()
-            .environmentObject(RealmManager())
-    }
-}
+//struct AddTaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddTaskView()
+//
+//
+//    }
+//}

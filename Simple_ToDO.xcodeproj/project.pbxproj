@@ -19,7 +19,6 @@
 		B5743EE82A61159400BCFCEF /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5743EE72A61159400BCFCEF /* AddButton.swift */; };
 		B5743EEB2A611A7200BCFCEF /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B5743EEA2A611A7200BCFCEF /* Realm */; };
 		B5743EED2A611A7200BCFCEF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B5743EEC2A611A7200BCFCEF /* RealmSwift */; };
-		B5743EEF2A611AA400BCFCEF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5743EEE2A611AA400BCFCEF /* RealmManager.swift */; };
 		B5743EF22A61438400BCFCEF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5743EF12A61438400BCFCEF /* Task.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		B5743EE22A610FBE00BCFCEF /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		B5743EE52A61108800BCFCEF /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		B5743EE72A61159400BCFCEF /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
-		B5743EEE2A611AA400BCFCEF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		B5743EF12A61438400BCFCEF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 				B56732BE2A9BF83700CEBAC9 /* Simple-ToDO-Info.plist */,
 				B56732B92A9BF80300CEBAC9 /* Fonts */,
 				B5743ED02A610CF400BCFCEF /* Simple_ToDOApp.swift */,
-				B5743EEE2A611AA400BCFCEF /* RealmManager.swift */,
 				B5743EF02A61436F00BCFCEF /* Models */,
 				B5743EDE2A610EA500BCFCEF /* Views */,
 				B5743EE12A610F9D00BCFCEF /* Components */,
@@ -214,7 +211,6 @@
 				B5743EE02A610EB600BCFCEF /* TasksView.swift in Sources */,
 				B5743EE82A61159400BCFCEF /* AddButton.swift in Sources */,
 				B5743ED12A610CF400BCFCEF /* Simple_ToDOApp.swift in Sources */,
-				B5743EEF2A611AA400BCFCEF /* RealmManager.swift in Sources */,
 				B5743EE32A610FBE00BCFCEF /* TaskRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
