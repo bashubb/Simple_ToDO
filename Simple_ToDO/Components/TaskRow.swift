@@ -32,6 +32,12 @@ struct CheckToggleStyle: ToggleStyle {
             Label {
                 configuration.label
                     .strikethrough(configuration.isOn, pattern: .solid, color: Color.red)
+                    .scaleEffect(x: 1 ,y: configuration.isOn ? -1 : 1 )
+                    .animation(.default.repeatCount(2).delay(1).speed(3), value: configuration.isOn)
+                    .scaleEffect(x: 1 ,y: configuration.isOn ? -1 : 1 )
+                    .animation(.default.repeatCount(2).delay(1.2).speed(3), value: configuration.isOn)
+                    
+                
             } icon : {
                 ZStack {
                     Circle()
@@ -39,11 +45,11 @@ struct CheckToggleStyle: ToggleStyle {
                         .frame(height: 25)
                     //First set of animation changes
                         .scaleEffect(configuration.isOn ? 2 : 1)
-                        .animation(.easeOut(duration: 1), value: configuration.isOn)
+                        .animation(.easeOut(duration: 1).delay(0.5), value: configuration.isOn)
                     
                     //Secondnset of animation changes
                         .scaleEffect(configuration.isOn ? 0.5 : 1)
-                        .animation(.easeIn.delay(1).speed(2), value: configuration.isOn)
+                        .animation(.easeIn.delay(1.5).speed(2), value: configuration.isOn)
                         .background(Circle()
                             .fill(configuration.isOn ? Color.green : Color.white)
                             .scaleEffect(configuration.isOn ? 1 : 0))
@@ -52,7 +58,7 @@ struct CheckToggleStyle: ToggleStyle {
                         .foregroundColor(.white)
                         .opacity(configuration.isOn ? 1 : 0)
                         .scaleEffect(configuration.isOn ? 0.8 : 0.3)
-                        .animation(.spring().delay(0.3) , value: configuration.isOn)
+                        .animation(.spring().delay(0.8) , value: configuration.isOn)
                 }
                 .animation(.default, value: configuration.isOn)
                 

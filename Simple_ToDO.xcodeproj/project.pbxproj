@@ -20,6 +20,7 @@
 		B5743EEB2A611A7200BCFCEF /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B5743EEA2A611A7200BCFCEF /* Realm */; };
 		B5743EED2A611A7200BCFCEF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B5743EEC2A611A7200BCFCEF /* RealmSwift */; };
 		B5743EF22A61438400BCFCEF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5743EF12A61438400BCFCEF /* Task.swift */; };
+		B5A493712A9D1AFD003A3610 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A493702A9D1AFD003A3610 /* EditTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B5743EE52A61108800BCFCEF /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		B5743EE72A61159400BCFCEF /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		B5743EF12A61438400BCFCEF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B5A493702A9D1AFD003A3610 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				B5743ED22A610CF400BCFCEF /* ContentView.swift */,
 				B5743EDF2A610EB600BCFCEF /* TasksView.swift */,
 				B5743EE52A61108800BCFCEF /* AddTaskView.swift */,
+				B5A493702A9D1AFD003A3610 /* EditTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5743EF22A61438400BCFCEF /* Task.swift in Sources */,
+				B5A493712A9D1AFD003A3610 /* EditTaskView.swift in Sources */,
 				B5743ED32A610CF400BCFCEF /* ContentView.swift in Sources */,
 				B5743EE62A61108800BCFCEF /* AddTaskView.swift in Sources */,
 				B5743EE02A610EB600BCFCEF /* TasksView.swift in Sources */,

@@ -56,7 +56,7 @@ struct AddButton: View {
         }
         .onAppear{
             
-            withAnimation(.spring(response: 0.55,dampingFraction: 0.5)) {
+            withAnimation(.spring(response: 0.55,dampingFraction: 0.5).delay(1)) {
                 tabBarIsShowing = true
             }
         }

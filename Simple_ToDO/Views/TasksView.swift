@@ -10,7 +10,10 @@ import RealmSwift
 
 struct TasksView: View {
     
-    @ObservedResults(Task.self) var tasks
+    @ObservedResults(Task.self, sortDescriptor:SortDescriptor(keyPath: "completed", ascending: true) ) var tasks
+    
+    @State private var showEditView = false
+    @State private var selectedTaskID: ObjectId?
     
     var body: some View {
         
@@ -28,16 +31,39 @@ struct TasksView: View {
                         ForEach(tasks, id: \.id) {task in
                                 TaskRow(task: task)
                                     .listRowBackground(Color.clear)
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        Button {
+                                            $tasks.remove(task)
+                                        } label: {
+                                            Image(systemName: "xmark")
+                                        }
+                                        .tint(Color.red)
+                                        Button {
+                                            selectedTaskID = task.id
+                                            showEditView = true
+                                        } label: {
+                                            Text("Edit")
+                                        }
+                                        .tint(.yellow)
+
+
+                                    }
 
                         }
-                        .onDelete(perform: $tasks.remove)
+                        
                     }
+                    .animation(.easeInOut(duration: 1.2).delay(0.5), value: tasks)
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                 
                 
                 
             }
+            .sheet(isPresented: $showEditView, content: {
+                if let id = selectedTaskID {
+                    EditTaskView(task: tasks[tasks.firstIndex(where: { task in task.id == id})!], selectedTaskId: $selectedTaskID)
+                }
+            })
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(hue: 0.481, saturation: 0.03, brightness: 0.884))
             
