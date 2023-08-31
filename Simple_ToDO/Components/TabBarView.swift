@@ -28,7 +28,7 @@ struct TabBarView: View {
                     // Tab bar
                     HStack(spacing: 0) {
                         
-                        //Chevron rotating sliding tab bar effect
+                        //Chevron rotating button - sliding tab bar effect
                         Button {
                             withAnimation(.spring(response: 0.55,dampingFraction: 0.5).delay(0.3)) {
                                 isTabBarShowing.toggle()
