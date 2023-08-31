@@ -17,6 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
+            
             VStack  {
                 if tasks.first != nil {
                     ZStack (alignment: .bottomTrailing) {
@@ -26,18 +27,21 @@ struct ContentView: View {
                     }
                 }
                 else {
+                    // No tasks
                     NoTasksView(showAddView: $showAddView)
                 }
-                
             }
             .sheet(isPresented: $showAddView) {
                 AddTaskView()
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-            .background(Color(hue: 0.481, saturation: 0.03, brightness: 0.884))
+            .background(Color(hue: 0.481, saturation: 0.03, brightness: 0.884)) // Color scheme TODO
             
             
+            // Animation intro triggered by "introShowing" state property
             ZStack{
+                // Black sliding background
                 Rectangle()
                     .offset(x: introShowing ? -1000 : 0 , y: 0)
                     .animation(.easeOut(duration: 1.2).delay(1.5), value: introShowing)
@@ -46,6 +50,7 @@ struct ContentView: View {
                     .animation(.easeOut(duration: 1.2).delay(1.5), value: introShowing)
 
                 
+                // Spinig name of the APP
                 Text("Simple    TODO")
                     .foregroundColor(.white)
                     .font(Font.custom("Monoton-Regular", size: 60))
@@ -57,13 +62,13 @@ struct ContentView: View {
             .ignoresSafeArea()
         }
         .onAppear{
+            // Delay for intro animation
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                 introShowing = true
             }
         }
     }
 }
-
 
 
 struct NoTasksView: View {
@@ -73,6 +78,7 @@ struct NoTasksView: View {
             Spacer()
             Text("You don't have any tasks yet")
             HStack{
+                // Add View link
                 Text("Press")
                 Button {
                     showAddView = true

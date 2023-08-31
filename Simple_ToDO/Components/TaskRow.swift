@@ -13,8 +13,7 @@ struct TaskRow: View {
     @ObservedRealmObject var task: Task
     
     var body: some View {
-        
-        
+    
         Toggle(task.title, isOn: $task.completed)
             .toggleStyle(CheckToggleStyle())
             .font(.custom("ShareTechMono-Regular", size: 20))
@@ -24,21 +23,27 @@ struct TaskRow: View {
 }
 
 
+//Custom Toggle
 struct CheckToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         Button {
             configuration.isOn.toggle()
         } label : {
             Label {
+                // Text of the task
                 configuration.label
                     .strikethrough(configuration.isOn, pattern: .solid, color: Color.red)
+                // First set of animation changes
                     .scaleEffect(x: 1 ,y: configuration.isOn ? -1 : 1 )
                     .animation(.default.repeatCount(2).delay(1).speed(3), value: configuration.isOn)
+                // Second set of animation changes
                     .scaleEffect(x: 1 ,y: configuration.isOn ? -1 : 1 )
                     .animation(.default.repeatCount(2).delay(1.2).speed(3), value: configuration.isOn)
-                    
+                
                 
             } icon : {
+                
+                // Circle with check mark on the left side of the row
                 ZStack {
                     Circle()
                         .stroke(lineWidth: 1.5)
@@ -47,7 +52,7 @@ struct CheckToggleStyle: ToggleStyle {
                         .scaleEffect(configuration.isOn ? 2 : 1)
                         .animation(.easeOut(duration: 1).delay(0.5), value: configuration.isOn)
                     
-                    //Secondnset of animation changes
+                    //Secondn set of animation changes
                         .scaleEffect(configuration.isOn ? 0.5 : 1)
                         .animation(.easeIn.delay(1.5).speed(2), value: configuration.isOn)
                         .background(Circle()
@@ -66,7 +71,6 @@ struct CheckToggleStyle: ToggleStyle {
         }
         .buttonStyle(.plain)
     }
-    
 }
 
 

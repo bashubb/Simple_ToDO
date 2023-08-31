@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 
+///Task Model
 final class Task: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title = ""
@@ -16,6 +17,7 @@ final class Task: Object, ObjectKeyIdentifiable {
     
 }
 
+///TaskGroup Model
 final class TaskGroup : Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id : ObjectId
     @Persisted var tasks = RealmSwift.List<Task>()

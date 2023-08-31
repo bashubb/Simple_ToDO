@@ -17,6 +17,7 @@ struct EditTaskView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 20) {
             
+            // Header
             Text("Update  the   task")
                 .font(.custom("Monoton-Regular", size: 30))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -25,6 +26,7 @@ struct EditTaskView: View {
                 .font(.custom("ShareTechMono-Regular", size: 20))
                 .textFieldStyle(.roundedBorder)
             
+            // Save button
             Button {
                 dismiss()
                 selectedTaskId = nil

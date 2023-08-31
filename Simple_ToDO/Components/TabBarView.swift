@@ -18,12 +18,17 @@ struct TabBarView: View {
     
     var body: some View {
         VStack{
+            
             Spacer()
             
             GeometryReader { geo in
                 HStack {
                     Spacer()
-                    HStack(spacing: 0){
+                    
+                    // Tab bar
+                    HStack(spacing: 0) {
+                        
+                        //Chevron rotating sliding tab bar effect
                         Button {
                             withAnimation(.spring(response: 0.55,dampingFraction: 0.5).delay(0.3)) {
                                 isTabBarShowing.toggle()
@@ -31,15 +36,15 @@ struct TabBarView: View {
                             withAnimation(.spring(response: 0.55,dampingFraction: 0.5).delay(0.5)) {
                                 isChevronRotate.toggle()
                             }
-                            
                         } label: {
                             Image(systemName: "chevron.left.2")
                                 .rotationEffect(.degrees(isChevronRotate ? 180 : 0 ))
                                 .padding(.leading, 5)
-                            
                         }
                         
                         Spacer()
+                        
+                        // Add Task button
                         Button {
                             showAddView = true
                         } label: {
@@ -48,6 +53,7 @@ struct TabBarView: View {
                         
                         Spacer()
                         
+                        // Share button
                         ShareLink(items: fetchTasks(tasks: tasksToDo),
                                   subject: Text("TO DO List"))
                         {
@@ -55,6 +61,7 @@ struct TabBarView: View {
                         }
                         
                         Spacer()
+                        
                     }
                     .foregroundColor(.gray)
                     .font(.largeTitle)
@@ -72,6 +79,8 @@ struct TabBarView: View {
             
         }
         .onAppear{
+            
+            // Slide tab bar on side on the view appear
             withAnimation(.spring(response: 0.55,dampingFraction: 0.5).delay(0.8)) {
                 isTabBarShowing.toggle()
             }
@@ -82,6 +91,9 @@ struct TabBarView: View {
         
     }
     
+    
+    
+    /// Prepare list of tasks for sharing
     func fetchTasks(tasks: Results<Task>) -> [String] {
         
         var tasksTODO = [String]()

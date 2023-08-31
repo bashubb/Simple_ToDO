@@ -18,6 +18,8 @@ struct TasksView: View {
     var body: some View {
         
             VStack(spacing:0) {
+                
+                // Header
                 HStack {
                     Text("My   tasks")
                         .font(Font.custom("Monoton-Regular", size: 40))
@@ -28,24 +30,29 @@ struct TasksView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.black.opacity(0.1))
                     
+                //List of tasks
                     List {
                         ForEach(tasks, id: \.id) {task in
                                 TaskRow(task: task)
                                     .listRowBackground(Color.clear)
-                                    .swipeActions {
+                                    .swipeActions(allowsFullSwipe: true) {
+                                        // Remove task
                                         Button {
                                                 $tasks.remove(task)
                                         } label: {
                                             Image(systemName: "xmark")
                                         }
-                                        .tint(Color.red)
+                                        .tint(Color.red.opacity(0.9))
+                                        
+                                        //Edit task
                                         Button {
                                             selectedTaskID = task.id
                                             showEditView = true
                                         } label: {
                                             Text("Edit")
                                         }
-                                        .tint(.yellow)
+                                        .tint(.yellow.opacity(0.9))
+                                       
 
 
                                     }
@@ -61,6 +68,7 @@ struct TasksView: View {
                 
             }
             .sheet(isPresented: $showEditView, content: {
+                // Trigger for EditTaskView screen
                 if let id = selectedTaskID {
                     EditTaskView(task: tasks[tasks.firstIndex(where: { task in task.id == id})!], selectedTaskId: $selectedTaskID)
                 }

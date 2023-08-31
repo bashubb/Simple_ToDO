@@ -17,6 +17,7 @@ struct AddTaskView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 20) {
             
+            // Header
             Text("Create  a  new task")
                 .font(.custom("Monoton-Regular", size: 30))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -25,7 +26,10 @@ struct AddTaskView: View {
                 .font(.custom("ShareTechMono-Regular", size: 20))
                 .textFieldStyle(.roundedBorder)
             
+            
+            // Add button
             Button {
+                // Validate if there is a name for the task
                 if title != "" {
                     let task = Task(value: ["title" : title])
                     $tasks.append(task)
@@ -51,10 +55,4 @@ struct AddTaskView: View {
     }
 }
 
-//struct AddTaskView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddTaskView()
-//
-//
-//    }
-//}
+
